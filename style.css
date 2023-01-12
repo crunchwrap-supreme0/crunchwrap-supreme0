@@ -2,8 +2,12 @@
     font-family: 'Rocher';
     src: url(https://assets.codepen.io/9632/RocherColorGX.woff2);
   }
-  
+
   body {
+    background-image: url(https://media.cnn.com/api/v1/images/stellar/prod/210323071056-01-taco-bell-new-format.jpg?q=w_3000,h_2250,x_0,y_0,c_fill);
+    background-size: auto 50%;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-blend-mode: multiply;
     font-family: 'Rocher';
     text-align: center;
     font-size: 50px;
@@ -18,3 +22,64 @@
   h1 {
     margin: 0;
   }
+  
+/* Button */
+button {
+  appearance: button;
+  background-color: red;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 30%;
+}
+
+button:after {
+  background-clip: padding-box;
+  background-color: orange;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+button:main,
+button:focus {
+  user-select: auto;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+button:disabled {
+  cursor: auto;
+}
