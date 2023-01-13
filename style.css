@@ -83,3 +83,13 @@ button:hover:not(:disabled) {
 button:disabled {
   cursor: auto;
 }
+
+/* -- Animation --*/
+@keyframes explode {
+  from {transform: scale(1);}
+  to {transform: scale(1.5  );}
+}
+
+.explode {
+  animation: explode 0.1s ease-in-out;
+}

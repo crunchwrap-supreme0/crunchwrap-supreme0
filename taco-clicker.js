@@ -1,66 +1,31 @@
 let score = 0;
-let upgrades = 0;
-let goal = 100;
+let upgrades = [0, 1, 15, 150, 2000, 40000, 100000];
+let goal = [100, 1000, 10000, 100000, 1000000, 10000000, 100000000];
+let current = 0;
 let intervalId;
 
 document.getElementById("taco-image").addEventListener("click", function() {
   score += 10;
   document.getElementById("score").innerHTML = score;
+  document.getElementById("taco-image").classList.toggle("explode");
 });
 
 function updateGoal() {
-    document.getElementById("goal").innerHTML = goal;
+    document.getElementById("upgradeButton").innerHTML = "UPGRADE - $" + goal[current];
 }
 
 function upgrade() {
-    if(score >= 100 && upgrades == 0) {
-        score -= 100;
-        upgrades++;
+    if(score >= goal[current]) {
+        score -= goal[current];
+        current++;
         document.getElementById("score").innerHTML = score;
-        goal = 1000;
         intervalId = setInterval(function() {
-            score++;
+            score += upgrades[current];
             document.getElementById("score").innerHTML = score;
             updateGoal();
         }, 1000);
     }
-    else if(score >= 1000 && upgrades == 1)
-    {
-        score -= 1000;
-        upgrades++;
-        document.getElementById("score").innerHTML = score;
-        goal = 10000;
-        intervalId = setInterval(function() {
-            score += 10;
-            document.getElementById("score").innerHTML = score;
-            updateGoal();
-        }, 1000);
-    }
-    else if(score >= 10000 && upgrades == 2)
-    {
-        score -= 10000;
-        upgrades++;
-        document.getElementById("score").innerHTML = score
-        goal = 100000;
-        intervalId = setInterval(function() {
-        score += 100;
-        document.getElementById("score").innerHTML = score;
-        updateGoal();
-        }, 1000);
-        }
-        else if(score >= 100000 && upgrades == 2)
-        {
-        score -= 100000;
-        upgrades++;
-        document.getElementById("score").innerHTML = score;
-        goal = 1000000;
-        intervalId = setInterval(function() {
-        score += 10000;
-        document.getElementById("score").innerHTML = score;
-        updateGoal();
-        }, 1000);
-        }
-        else if(upgrades > 1){
+    else if(upgrades > 1){
         clearInterval(intervalId);
-        }
+    }
 }
